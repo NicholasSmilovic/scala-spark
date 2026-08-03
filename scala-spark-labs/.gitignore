@@ -3,6 +3,7 @@
 .idea/
 .metals/
 .tools/
+.sbtopts
 target/
 
 output/*

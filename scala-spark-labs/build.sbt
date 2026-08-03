@@ -9,6 +9,9 @@ lazy val root = (project in file("."))
       "org.apache.spark" %% "spark-sql" % "4.2.0",
       "org.scalatest" %% "scalatest" % "3.2.20" % Test
     ),
+    Test / fork := true,
+    Test / javaOptions +=
+      "--add-opens=java.base/sun.util.calendar=ALL-UNNAMED",
     Compile / run / fork := true,
     Compile / run / outputStrategy := Some(StdoutOutput),
     Compile / run / javaOptions ++= Seq(

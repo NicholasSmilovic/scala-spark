@@ -24,9 +24,10 @@ See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-ste
 
 ## Source and data isolation
 
-- [SparkOrders.scala](src/main/scala/SparkOrders.scala) is the completed Curriculum 01 artifact.
-- Curriculum 02 will use learner-owned `src/main/scala/curriculum02/SparkIngestion.scala`.
-- Each later curriculum receives a numbered package, data directory, output directory, milestone file, and concise progress file.
+- [SparkOrders.scala](src/main/scala/curriculum01/SparkOrders.scala) is the completed Curriculum 01 artifact and reads from `data/curriculum-01/`.
+- [SparkIngestion.scala](src/main/scala/curriculum02/SparkIngestion.scala) is the completed Curriculum 02 artifact and owns `data/curriculum-02/` plus `output/curriculum-02/`.
+- Curriculum 03 uses the `curriculum03` source and test namespaces, in-memory fixtures, and suite-owned temporary output.
+- Each curriculum receives a numbered source namespace, milestone file, and concise progress file; persistent data and normal output are added only when needed.
 - Generated output remains under `output/` and is ignored by Git.
 
 ## Selected toolchain

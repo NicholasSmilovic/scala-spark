@@ -9,6 +9,7 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Learns best by writing useful code after seeing the concrete purpose and data flow.
 - Wants a practical adult pace: one coherent behavior change at a time, not token-sized steps.
 - Prefers closely related edits and their validating command in one chunk; save-only or readiness checkpoints feel artificially slow unless inspection is genuinely needed.
+- Uses four-space indentation for Scala and wants all tutor-provided Scala fragments formatted that way to avoid manual reformatting.
 - For an unfamiliar Scala or Spark API, needs the exact minimal syntax pattern before using it; do not ask for guessed method names or signatures.
 - When a concept does not land, concrete explanation from the current rows, files, or execution plan works better than terminology drills or fill-in-the-blank questions.
 - Wants direct correction and expects the tutor to push back when a performance assumption is unsafe.
@@ -36,6 +37,9 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Has built a raw-string landing-to-curated pipeline with typed valid and diagnosable rejected Parquet outputs.
 - Distinguishes durable Parquet storage from application-local caching, and distinguishes directory partition pruning from Parquet column pruning.
 - Has observed Parquet predicate pushdown in a physical plan and understands that a pushed predicate still requires Spark's final row-level filter.
+- Understands that one driver coordinates a Spark application, `collect()` gathers results from all Spark partitions into driver JVM memory, and subsequent Scala collection operations are local rather than distributed; treats `collect()` as appropriate only for bounded results such as small test fixtures.
+- Has built local Spark tests with suite lifecycle management, explicit in-memory schemas, exact order-independent row assertions, table-driven validation cases, and temporary-directory Parquet integration coverage.
+- Contrasts lazy `DataFrame => DataFrame` transformations with a write method returning Scala `Unit`, whose observable contract is its filesystem side effect or failure.
 
 ## Current watch list
 

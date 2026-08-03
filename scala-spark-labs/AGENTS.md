@@ -77,6 +77,23 @@ Follow the milestone file referenced by `learning/ACTIVE.md`. Do not skip ahead 
 
 Topics remain inactive unless the active curriculum names them.
 
+## Future curriculum dataset
+
+A large simulated financial-transactions dataset is available for a future data-oriented curriculum:
+
+- Archive: `/Users/nicholassmilovic/Downloads/archive.zip`
+- Archive member: `Fraud.csv` (493,534,783 bytes uncompressed)
+- SHA-256 of the archive: `06242096c77aef292f3950784f51c77e891df50c734dde5ba152cf68fa054858`
+- Shape: 6,362,620 data rows and 11 columns, with no malformed field counts in the verified snapshot
+- Columns: `step`, `type`, `amount`, `nameOrig`, `oldbalanceOrg`, `newbalanceOrig`, `nameDest`, `oldbalanceDest`, `newbalanceDest`, `isFraud`, and `isFlaggedFraud`
+- Labels: 8,213 rows have `isFraud = 1` (about 0.13%); positive cases occur only in `TRANSFER` and `CASH_OUT`
+
+Treat this as a candidate default dataset when planning a later curriculum whose goals benefit from realistic scale, such as large CSV ingestion, explicit schemas, partition strategy, data-quality checks, feature engineering, skew or class imbalance, and evaluation metrics. Do not force it into a curriculum whose learning goal is better served by small controlled fixtures, and do not introduce it into active Curriculum 03 unless the milestone files are deliberately revised.
+
+The data is simulated, so describe it as transaction-like educational data rather than real bank activity. For predictive exercises, guard against target leakage: do not use `isFlaggedFraud` as an ordinary input feature for `isFraud`, and explicitly review whether balance-derived fields or high-cardinality account identifiers make the exercise unrealistically easy.
+
+Spark does not read the CSV member inside a ZIP archive as an ordinary CSV source. When a curriculum is activated, first verify the archive path and checksum, then extract only `Fraud.csv` into that curriculum's isolated, Git-ignored data location. Do not commit the archive or the extracted 493 MB CSV. Prefer small deterministic samples for unit tests and reserve the full dataset for learner-run integration or performance exercises.
+
 ## Optional specialist
 
 After the learner supplies a concrete setup or runtime error, an environment/build specialist may inspect the evidence and propose one next command. The learner still runs that command.
