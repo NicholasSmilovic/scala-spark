@@ -8,7 +8,7 @@ This curriculum answers the learner's questions about a 500 GB dirty CSV, direct
 
 ## Project boundary
 
-- Preserve the completed `SparkOrders.scala` application.
+- Preserve the completed `src/main/scala/curriculum01/SparkOrders.scala` application.
 - The learner owns a new source file at `src/main/scala/curriculum02/SparkIngestion.scala`.
 - Run the new application explicitly with `runMain curriculum02.SparkIngestion`; do not replace the Curriculum 01 main class.
 - Read from `data/curriculum-02/incoming/`.

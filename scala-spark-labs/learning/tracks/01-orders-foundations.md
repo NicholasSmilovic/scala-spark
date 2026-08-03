@@ -1,7 +1,8 @@
 # Curriculum 01 Progress — Orders Foundations
 
 - Status: Complete on 2026-07-31.
-- Source artifact: `src/main/scala/SparkOrders.scala`
+- Source artifact: `src/main/scala/curriculum01/SparkOrders.scala`
+- Input data: `data/curriculum-01/orders.csv`
 - Detailed historical records: `learning/archive/01-orders-foundations/`
 
 | Milestone | Evidence |

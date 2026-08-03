@@ -1,6 +1,6 @@
 # Scala/Spark Learning Labs
 
-This repository contains a sequence of small, gated Scala/Spark curricula. Curriculum 01 built the completed orders application; Curriculum 02 is prepared as a separate ingestion-and-partitioning lab.
+This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01 and 02 are complete, and Curriculum 03 is the active Spark-testing lab.
 
 The learner owns the keyboard: you run the commands and edit the Scala file. Codex acts as the Lead Spark Tutor, gives one step at a time, and checks your evidence before advancing.
 
@@ -17,7 +17,8 @@ The durable teaching rules live in `AGENTS.md`. `learning/ACTIVE.md` points to t
 | ID | Curriculum | Status |
 | --- | --- | --- |
 | 01 | Orders foundations: toolchain, DataFrames, lazy transformations, aggregation, and shuffle plans | Complete |
-| 02 | Reliable ingestion: explicit schemas, dirty-data quarantine, partitions, shuffles, and Parquet pruning | Ready |
+| 02 | Reliable ingestion: explicit schemas, dirty-data quarantine, partitions, shuffles, and Parquet pruning | Complete |
+| 03 | Spark testing: reusable transformations and isolated file-boundary tests | In progress |
 
 See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-step-at-a-time teaching loop is defined in `AGENTS.md`.
 

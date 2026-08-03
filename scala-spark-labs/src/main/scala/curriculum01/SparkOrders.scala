@@ -1,3 +1,5 @@
+package curriculum01
+
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.functions.sum
@@ -22,7 +24,7 @@ object SparkOrders {
       val orders = spark.read
         .option("header", "true")
         .option("inferSchema", "true")
-        .csv("data/orders.csv")
+        .csv("data/curriculum-01/orders.csv")
 
       orders.printSchema()
 

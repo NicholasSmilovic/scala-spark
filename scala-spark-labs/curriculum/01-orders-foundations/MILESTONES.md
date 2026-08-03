@@ -2,11 +2,18 @@
 
 The milestones are gates, not a checklist to complete automatically. Advance only after the learner supplies the stated evidence.
 
+## Project boundary
+
+- The learner-owned source lives at `src/main/scala/curriculum01/SparkOrders.scala`.
+- Run the application explicitly with `runMain curriculum01.SparkOrders`.
+- Read only from `data/curriculum-01/`.
+- Preserve this completed source and data when starting later curricula.
+
 ## Milestone 1 — Make the local toolchain work
 
 **Starting state**
 
-`SparkOrders.scala` creates a local `SparkSession`, prints the Spark version and master, and stops.
+`src/main/scala/curriculum01/SparkOrders.scala` creates a local `SparkSession`, prints the Spark version and master, and stops.
 
 **Teach**
 
@@ -41,7 +48,7 @@ Do not read the CSV during this milestone.
 
 **Learner actions**
 
-- Add CSV reading to `SparkOrders.scala`.
+- Add CSV reading to `src/main/scala/curriculum01/SparkOrders.scala`.
 - Print the schema.
 - Display the original rows.
 - Run the application and inspect the twelve rows.
@@ -111,4 +118,4 @@ The learner must also identify the grouping and global sorting exchanges in the 
 
 ## Completion boundary
 
-Milestone 4 completes the starter project. Stop there. Recommend a new, separate project for later topics such as joins, broadcast decisions, caching, partitioning, or Parquet.
+Milestone 4 completes Curriculum 01. Stop there and preserve its numbered source and data artifacts. Use a later numbered curriculum and source namespace for topics such as joins, broadcast decisions, caching, partitioning, or Parquet.

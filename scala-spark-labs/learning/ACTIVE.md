@@ -12,4 +12,4 @@
 - Last verified evidence: The learner wrote and read typed Parquet outputs, verified nine valid and nine rejected records, observed the four `region=...` directories, and read three North records from the curated base path. The physical plan showed region partition pruning, a three-column Parquet `ReadSchema`, and pushed `unit_price` filters; the learner distinguished durable Parquet storage, partition pruning, and column pruning.
 - Immediate teaching goal: Add the test-scoped ScalaTest dependency and establish one correctly managed local Spark test.
 
-Do not edit or replace `src/main/scala/SparkOrders.scala` or `src/main/scala/curriculum02/SparkIngestion.scala`; they are completed curriculum artifacts.
+Do not edit or replace `src/main/scala/curriculum01/SparkOrders.scala` or `src/main/scala/curriculum02/SparkIngestion.scala`; they are completed curriculum artifacts.
