@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Editors and Scala language servers
+.bloop/
+.bsp/
+.idea/
+.metals/
+.scala-build/
+.vscode/
+
+# Local tooling
+.tools/
+
+# Scala / sbt build output
+*.class
+target/
+project/target/
+project/project/
+
+# Local Spark runtime state
+derby.log
+metastore_db/
+spark-warehouse/
+
+# Generated Spark output (keep placeholder files)
+**/output/*
+!**/output/.gitkeep

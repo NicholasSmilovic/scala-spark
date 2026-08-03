@@ -1,0 +1,9 @@
+.DS_Store
+.bsp/
+.idea/
+.metals/
+.tools/
+target/
+
+output/*
+!output/.gitkeep

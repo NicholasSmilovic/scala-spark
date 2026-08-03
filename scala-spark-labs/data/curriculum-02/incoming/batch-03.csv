@@ -1,0 +1,7 @@
+order_id,customer_id,region,product,quantity,unit_price,status,order_date
+2013,C113,Central,Monitor,1,300.00,completed,2026-08-04
+2014,C114,North,Dock,1,150.00,pending,2026-08-04
+2015,C115,South,Keyboard,2,80.00,completed,2026-08-04
+2016,C116,East,Mouse,5,25.00,cancelled,2026-08-05
+2017,C117,West,Webcam,2,90.00,completed,2026-08-05
+2018,C118,North,Monitor,1,275.00,completed,2026-08-05

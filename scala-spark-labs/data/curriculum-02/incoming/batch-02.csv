@@ -1,0 +1,7 @@
+order_id,customer_id,region,product,quantity,unit_price,status,order_date
+2007,C107,East,Monitor,1,250.00,completed,2026-08-02
+2008,C108,West,Keyboard,-1,80.00,completed,2026-08-02
+2009,C109," North ",Mouse,4,25.00,completed,2026-08-03
+2010,,South,Dock,2,150.00,completed,2026-08-03
+2011,C111,East,Webcam,3,free,completed,2026-08-03
+2012,C112,West,Laptop Stand,2,45.00,completed,2026-02-30

@@ -1,0 +1,13 @@
+order_id,customer_id,region,product,quantity,unit_price,status
+1001,C001,North,Laptop Stand,2,45.00,completed
+1002,C002,South,Keyboard,1,80.00,completed
+1003,C003,East,Monitor,2,250.00,completed
+1004,C004,West,Mouse,3,25.00,cancelled
+1005,C005,North,Dock,1,150.00,completed
+1006,C006,South,Webcam,0,90.00,completed
+1007,C007,East,Keyboard,-1,80.00,completed
+1008,C008,West,Monitor,1,250.00,completed
+1009,C009,North,Mouse,4,25.00,cancelled
+1010,C010,South,Dock,2,150.00,completed
+1011,C011,East,Webcam,3,90.00,completed
+1012,C012,West,Laptop Stand,2,45.00,completed
