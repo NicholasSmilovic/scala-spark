@@ -1,7 +1,5 @@
 # Open Learning Loops
 
-Only unresolved ideas that should affect a future lesson belong here. Remove an item after the learner supplies closing evidence; retain the evidence in the relevant track summary.
-
-No unresolved cross-curriculum learning loops.
-
-If the same gap recurs in a later curriculum, update the existing row rather than adding a duplicate.
+| Area | Current evidence gap | Planned revisit | Closing evidence |
+| --- | --- | --- | --- |
+| Semi-structured curation | Learner has reliable CSV/Parquet foundations but has not landed nested JSON, retained malformed syntax, parsed timestamps/decimals, handled structs/arrays, or deduplicated event versions deterministically. | Curriculum 06, Milestones 1–4 | Exact nested landing and quarantine results, deterministic window winners with plan evidence, and verified curated/rejected Parquet outputs. |

@@ -14,6 +14,8 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - For an unfamiliar Scala or Spark API, needs the exact minimal syntax pattern before using it; do not ask for guessed method names or signatures.
 - When a concept does not land, concrete explanation from the current rows, files, or execution plan works better than terminology drills or fill-in-the-blank questions.
 - Wants direct correction and expects the tutor to push back when a performance assumption is unsafe.
+- Wants the agreed Curriculum 06–10 roadmap kept stable; do not silently promote one technique into a replacement curriculum or renumber/reorder topics without an explicit redesign request.
+- Wants a clear finish line: Curriculum 06 completes the core batch Spark track, while Delta, Azure, distributed operations, and production reliability remain optional extensions rather than implied prerequisites.
 
 ## Learner ownership
 
@@ -43,6 +45,7 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Contrasts lazy `DataFrame => DataFrame` transformations with a write method returning Scala `Unit`, whose observable contract is its filesystem side effect or failure.
 - Distinguishes inner and left shared-key join contracts, including unmatched right-side nulls, and explains duplicate-key cardinality as the combinations of matching rows rather than a guarantee of one output per left row.
 - Reads shuffle-based versus broadcast join plans: recognizes two-sided hash-partitioning exchanges and sort-merge execution, product-side `BroadcastExchange`, `BroadcastHashJoin`, `BuildRight`, and the network/memory requirement for a safely small build side.
+- Distinguishes persistence registration, first-action materialization, executor-side cached blocks, `InMemoryTableScan` reads, and blocking `unpersist`; treats caching as a reuse/upstream-cost/executor-pressure decision and does not treat tiny local timing as production performance evidence.
 
 ## Maintenance rule
 

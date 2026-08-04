@@ -1,6 +1,6 @@
 # Scala/Spark Learning Labs
 
-This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01–04 are complete; no later curriculum is active yet.
+This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01–05 are complete, Curriculum 06 is the active final core lab, and Curricula 07–10 are optional professional extensions.
 
 The learner owns the keyboard: you run the commands and edit the Scala file. Codex acts as the Lead Spark Tutor, gives one step at a time, and checks your evidence before advancing.
 
@@ -20,8 +20,14 @@ The durable teaching rules live in `AGENTS.md`. `learning/ACTIVE.md` points to t
 | 02 | Reliable ingestion: explicit schemas, dirty-data quarantine, partitions, shuffles, and Parquet pruning | Complete |
 | 03 | Spark testing: reusable transformations and isolated file-boundary tests | Complete |
 | 04 | Join correctness, cardinality, and broadcast decisions | Complete |
+| 05 | Caching, persistence, and reuse decisions | Complete |
+| 06 | Semi-structured JSON and curated events | Ready — active final core |
+| 07 | Incremental pipelines with Delta Lake | Optional |
+| 08 | First Azure Databricks Scala deployment | Optional |
+| 09 | Real distributed execution evidence | Optional |
+| 10 | Production reliability capstone | Optional |
 
-See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-step-at-a-time teaching loop is defined in `AGENTS.md`.
+See [curriculum/ROADMAP.md](curriculum/ROADMAP.md) for the locked sequence and [curriculum/INDEX.md](curriculum/INDEX.md) for the curriculum paths. The one-step-at-a-time teaching loop is defined in `AGENTS.md`.
 
 ## Source and data isolation
 
@@ -29,6 +35,9 @@ See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-ste
 - [SparkIngestion.scala](src/main/scala/curriculum02/SparkIngestion.scala) is the completed Curriculum 02 artifact and owns `data/curriculum-02/` plus `output/curriculum-02/`.
 - Curriculum 03 uses the `curriculum03` source and test namespaces, in-memory fixtures, and suite-owned temporary output.
 - Curriculum 04 uses the `curriculum04` source and test namespaces with in-memory order/product fixtures and no persistent output.
+- Curriculum 05 uses the `curriculum05` source and test namespaces with controlled in-memory fixtures and no persistent output.
+- Curriculum 06 uses the `curriculum06` source and test namespaces with suite-owned nested JSON input and Parquet output.
+- Curricula 07–10 extend the tested pipeline with isolated Delta, Azure development deployment, realistic-scale execution evidence, and reliability controls according to the roadmap.
 - Each curriculum receives a numbered source namespace, milestone file, and concise progress file; persistent data and normal output are added only when needed.
 - Generated output remains under `output/` and is ignored by Git.
 
@@ -41,12 +50,15 @@ See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-ste
 | Apache Spark | 4.2.0 | Stable Spark release selected for the Scala DataFrame API. |
 | sbt | 1.12.11 | Pinned in `project/build.properties`; the learner reports sbt is installed. |
 
+These pins govern the completed root labs and active Curriculum 06. Curriculum 07 has an explicit compatibility gate because Delta Lake must be paired with an officially supported Spark version rather than added blindly to the current root build.
+
 Maven exists on the machine but is not used for this lab. No global Scala installation, Python, PySpark, Python virtual environment, or Python dependencies are required.
 
 ## Files
 
 - `AGENTS.md`: durable tutor, learner-ownership, and milestone rules.
 - `prompts/START_SESSION.md`: the prompt to paste into each new learning task.
+- `curriculum/ROADMAP.md`: locked Curriculum 01–10 sequence and compatibility gates.
 - `curriculum/INDEX.md`: curriculum registry and scaling conventions.
 - `curriculum/NN-*/MILESTONES.md`: gated outcomes for one lab.
 - `learning/ACTIVE.md`: current curriculum pointer and immediate state.
