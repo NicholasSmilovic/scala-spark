@@ -10,6 +10,7 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Wants a practical adult pace: one coherent behavior change at a time, not token-sized steps.
 - Prefers closely related edits and their validating command in one chunk; save-only or readiness checkpoints feel artificially slow unless inspection is genuinely needed.
 - Uses four-space indentation for Scala and wants all tutor-provided Scala fragments formatted that way to avoid manual reformatting.
+- Prefers a linear explanation flow without nested sidenotes: answer the direct question, give one essential correction if needed, then return to one next action.
 - For an unfamiliar Scala or Spark API, needs the exact minimal syntax pattern before using it; do not ask for guessed method names or signatures.
 - When a concept does not land, concrete explanation from the current rows, files, or execution plan works better than terminology drills or fill-in-the-blank questions.
 - Wants direct correction and expects the tutor to push back when a performance assumption is unsafe.
@@ -40,10 +41,6 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Understands that one driver coordinates a Spark application, `collect()` gathers results from all Spark partitions into driver JVM memory, and subsequent Scala collection operations are local rather than distributed; treats `collect()` as appropriate only for bounded results such as small test fixtures.
 - Has built local Spark tests with suite lifecycle management, explicit in-memory schemas, exact order-independent row assertions, table-driven validation cases, and temporary-directory Parquet integration coverage.
 - Contrasts lazy `DataFrame => DataFrame` transformations with a write method returning Scala `Unit`, whose observable contract is its filesystem side effect or failure.
-
-## Current watch list
-
-- Revisit Scala `Unit` only when another real return type makes the contrast useful.
 
 ## Maintenance rule
 
