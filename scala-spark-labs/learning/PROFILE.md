@@ -41,6 +41,8 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Understands that one driver coordinates a Spark application, `collect()` gathers results from all Spark partitions into driver JVM memory, and subsequent Scala collection operations are local rather than distributed; treats `collect()` as appropriate only for bounded results such as small test fixtures.
 - Has built local Spark tests with suite lifecycle management, explicit in-memory schemas, exact order-independent row assertions, table-driven validation cases, and temporary-directory Parquet integration coverage.
 - Contrasts lazy `DataFrame => DataFrame` transformations with a write method returning Scala `Unit`, whose observable contract is its filesystem side effect or failure.
+- Distinguishes inner and left shared-key join contracts, including unmatched right-side nulls, and explains duplicate-key cardinality as the combinations of matching rows rather than a guarantee of one output per left row.
+- Reads shuffle-based versus broadcast join plans: recognizes two-sided hash-partitioning exchanges and sort-merge execution, product-side `BroadcastExchange`, `BroadcastHashJoin`, `BuildRight`, and the network/memory requirement for a safely small build side.
 
 ## Maintenance rule
 

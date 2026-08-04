@@ -1,6 +1,6 @@
 # Scala/Spark Learning Labs
 
-This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01 and 02 are complete, and Curriculum 03 is the active Spark-testing lab.
+This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01–04 are complete; no later curriculum is active yet.
 
 The learner owns the keyboard: you run the commands and edit the Scala file. Codex acts as the Lead Spark Tutor, gives one step at a time, and checks your evidence before advancing.
 
@@ -18,7 +18,8 @@ The durable teaching rules live in `AGENTS.md`. `learning/ACTIVE.md` points to t
 | --- | --- | --- |
 | 01 | Orders foundations: toolchain, DataFrames, lazy transformations, aggregation, and shuffle plans | Complete |
 | 02 | Reliable ingestion: explicit schemas, dirty-data quarantine, partitions, shuffles, and Parquet pruning | Complete |
-| 03 | Spark testing: reusable transformations and isolated file-boundary tests | In progress |
+| 03 | Spark testing: reusable transformations and isolated file-boundary tests | Complete |
+| 04 | Join correctness, cardinality, and broadcast decisions | Complete |
 
 See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-step-at-a-time teaching loop is defined in `AGENTS.md`.
 
@@ -27,6 +28,7 @@ See [curriculum/INDEX.md](curriculum/INDEX.md) for the active paths. The one-ste
 - [SparkOrders.scala](src/main/scala/curriculum01/SparkOrders.scala) is the completed Curriculum 01 artifact and reads from `data/curriculum-01/`.
 - [SparkIngestion.scala](src/main/scala/curriculum02/SparkIngestion.scala) is the completed Curriculum 02 artifact and owns `data/curriculum-02/` plus `output/curriculum-02/`.
 - Curriculum 03 uses the `curriculum03` source and test namespaces, in-memory fixtures, and suite-owned temporary output.
+- Curriculum 04 uses the `curriculum04` source and test namespaces with in-memory order/product fixtures and no persistent output.
 - Each curriculum receives a numbered source namespace, milestone file, and concise progress file; persistent data and normal output are added only when needed.
 - Generated output remains under `output/` and is ignored by Git.
 

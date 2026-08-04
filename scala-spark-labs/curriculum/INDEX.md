@@ -7,7 +7,7 @@ This repository is a sequence of small Scala/Spark labs. Each curriculum owns on
 | 01 | Orders foundations | Complete | `curriculum/01-orders-foundations/MILESTONES.md` | `learning/tracks/01-orders-foundations.md` |
 | 02 | Reliable ingestion and partitions | Complete | `curriculum/02-ingestion-partitions/MILESTONES.md` | `learning/tracks/02-ingestion-partitions.md` |
 | 03 | Spark testing and reusable transformations | Complete | `curriculum/03-spark-testing/MILESTONES.md` | `learning/tracks/03-spark-testing.md` |
-| 04 | Join correctness, cardinality, and broadcast decisions | Ready — active | `curriculum/04-join-cardinality-broadcast/MILESTONES.md` | `learning/tracks/04-join-cardinality-broadcast.md` |
+| 04 | Join correctness, cardinality, and broadcast decisions | Complete | `curriculum/04-join-cardinality-broadcast/MILESTONES.md` | `learning/tracks/04-join-cardinality-broadcast.md` |
 
 ## Scaling conventions
 
