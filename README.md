@@ -36,5 +36,8 @@ cd scala-spark-labs
 sbt test
 ```
 
+The GitHub Actions CI workflow runs the same complete test suite on every push,
+pull request, and manual dispatch.
+
 See the [project README](scala-spark-labs/README.md) for the module map,
 focused commands, toolchain versions, and learning workflow.
