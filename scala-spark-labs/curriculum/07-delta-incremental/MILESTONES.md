@@ -6,19 +6,27 @@ Extend the curated event pipeline from immutable Parquet outputs to transactiona
 
 ## Compatibility gate
 
-Before implementation, verify the current official Delta Lake compatibility matrix against the repository's Spark, Scala, and Java versions. Pin one supported combination and record it. If the completed root Spark version is unsupported, isolate Curriculum 07's build/runtime rather than silently installing an incompatible Delta artifact or rewriting completed curricula.
+Before implementation, verify the current official Delta Lake compatibility evidence against the repository's Spark, Scala, and Java versions. The activation review selected an isolated Spark 4.1.0 / Delta Lake 4.2.0 / Scala 2.13.17 / Java 21 runtime because Delta Lake 4.2.0 does not publish support for the completed root's Spark 4.2.0 runtime. Local compilation and a transaction-log smoke test are still required before the compatibility gate is complete.
 
 ## Project boundary
 
 - Preserve completed Curriculum 01–06 sources and tests.
-- Learner-owned production code will live under package `curriculum07` with the primary source `IncrementalDeltaPipeline.scala`.
-- Learner-owned tests will live under package `curriculum07` with the primary suite `IncrementalDeltaPipelineSpec.scala`.
+- Keep the isolated sbt build under `labs/curriculum07/`; do not change the completed root build pins.
+- Learner-owned production code will live at `labs/curriculum07/src/main/scala/curriculum07/IncrementalDeltaPipeline.scala`.
+- Learner-owned tests will live at `labs/curriculum07/src/test/scala/curriculum07/IncrementalDeltaPipelineSpec.scala`.
 - Use suite-owned temporary Delta table paths for local tests.
 - Reuse the curated event contract from Curriculum 06 through explicit test fixtures rather than coupling tests to Curriculum 06 output directories.
 - Keep every merge source unique on the merge key before calling `MERGE`.
 - Test exact table snapshots and version history after each operation.
 
 Do not introduce Azure deployment, streaming, change data feed, `VACUUM`, optimization commands, production catalogs, generated large datasets, or performance benchmarking in this curriculum.
+
+## Definition of done for every milestone
+
+- The requested Delta behavior and focused evidence pass inside the isolated build.
+- Exact table state and relevant history are asserted without depending on incidental row or file order.
+- Touched code has no unused imports or variables, duplicate declarations, dead scaffolding, obsolete comments, or accidental formatting drift.
+- Cleanup is completed inside the behavior milestone rather than deferred to a standalone cleanup milestone.
 
 ## Milestone 1 — Establish a compatible Delta runtime and transactional table
 
@@ -51,7 +59,7 @@ Do not introduce Azure deployment, streaming, change data feed, `VACUUM`, optimi
 - Tests prove one explicitly approved schema evolution.
 - The learner distinguishes schema enforcement from schema evolution and rejects session-wide auto-evolution as a casual default.
 
-## Milestone 3 — Upsert one deterministic incremental batch
+## Milestone 3 — Upsert deterministic batches and prove idempotency
 
 **Learner outcomes**
 
@@ -59,40 +67,35 @@ Do not introduce Azure deployment, streaming, change data feed, `VACUUM`, optimi
 - Deduplicate the source to one row per merge key before merging.
 - Use Delta's programmatic Scala `MERGE` API with explicit matched-update and not-matched-insert behavior.
 - Assert the exact post-merge target snapshot and commit history.
-
-**Completion evidence**
-
-- The focused suite proves update and insert behavior without duplicate target keys.
-- The learner explains why duplicate source keys make merge semantics unsafe unless resolved before the merge.
-
-## Milestone 4 — Make reruns idempotent
-
-**Learner outcomes**
-
-- Run the same incremental batch twice.
-- Assert that the second run produces the same logical table snapshot and row count.
+- Run the same batch twice and prove the same logical table snapshot and row count.
 - Distinguish logical idempotency from “no new Delta version was written.”
 - Add a second batch and prove deterministic state progression.
 
 **Completion evidence**
 
-- Exact snapshots prove repeatable reruns.
+- The focused suite proves update and insert behavior without duplicate target keys.
+- Exact snapshots prove repeatable reruns and deterministic second-batch progression.
 - History evidence is interpreted without assuming that an unchanged logical result must imply no commit.
+- The learner explains why duplicate source keys make merge semantics unsafe unless resolved before the merge.
 - The learner defines the stable merge key and update contract.
 
-## Milestone 5 — Build bronze, silver, and gold table boundaries
+## Milestone 4 — Build an idempotent bronze, silver, and gold pipeline
 
 **Learner outcomes**
 
-- Write raw accepted event envelopes to bronze, typed deduplicated events to silver, and one exact business aggregate to gold.
-- Keep each layer's schema and ownership explicit.
-- Rerun the batch pipeline from the same inputs and prove identical logical outputs.
+- Give each input batch a stable `batch_id`.
+- Ingest raw accepted event envelopes to bronze without duplicating the same batch on rerun.
+- Merge typed deduplicated current event state into silver.
+- Rebuild one exact gold aggregate from silver so it cannot drift from current state.
+- Keep each layer's schema, key, write semantics, and ownership explicit.
+- Rerun the same batch and prove identical logical bronze, silver, and gold outputs.
 - Run the full Curriculum 07 suite.
 
 **Completion evidence**
 
 - Full suite passes with exact bronze/silver/gold snapshots and isolated temporary table paths.
-- The learner explains what each layer guarantees, where quarantine evidence lives, and why layering alone does not make a pipeline reliable.
+- History and snapshots prove the layer-specific rerun contracts rather than merely proving that three directories exist.
+- The learner explains what each layer guarantees, where quarantine evidence lives, and why naming layers bronze/silver/gold does not itself make a pipeline correct or reliable.
 
 ## Completion boundary
 

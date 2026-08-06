@@ -1,16 +1,18 @@
 # Active Learning Track
 
-- Active curriculum: `06-semi-structured-curation`
-- Status: Milestone 1 is next.
-- Track boundary: Curriculum 06 is the final core Spark curriculum; Curricula 07–10 are optional and must not auto-activate.
-- Milestones: `curriculum/06-semi-structured-curation/MILESTONES.md`
-- Progress: `learning/tracks/06-semi-structured-curation.md`
-- Planned learner-owned production source: `src/main/scala/curriculum06/JsonEventPipeline.scala` (not created yet)
-- Planned learner-owned test source: `src/test/scala/curriculum06/JsonEventPipelineSpec.scala` (not created yet)
-- Test input/output: suite-owned temporary nested JSON and Parquet paths
+- Active curriculum: `07-delta-incremental`
+- Status: Milestone 1 is next; official compatibility review complete, local runtime verification remains.
+- Track boundary: Curriculum 07 is an optional professional extension; Curriculum 08 must not auto-activate.
+- Milestones: `curriculum/07-delta-incremental/MILESTONES.md`
+- Compatibility record: `curriculum/07-delta-incremental/COMPATIBILITY.md`
+- Progress: `learning/tracks/07-delta-incremental.md`
+- Isolated build root: `labs/curriculum07/` (not created yet)
+- Planned learner-owned production source: `labs/curriculum07/src/main/scala/curriculum07/IncrementalDeltaPipeline.scala`
+- Planned learner-owned test source: `labs/curriculum07/src/test/scala/curriculum07/IncrementalDeltaPipelineSpec.scala`
+- Test input/output: suite-owned temporary Delta table paths
 - Persistent input/output: none required for automated tests
-- Test target: the Curriculum 06 suite through `sbt test`
-- Last verified evidence: Curriculum 05 complete with exact uncached/cached behavior, cached-plan evidence, safe blocking cleanup, recomputation after unpersist, and reuse/cost/memory-based cache decisions.
-- Immediate teaching goal: Define the complete raw nested-event schema and prove that valid JSON and syntactically malformed JSON are both retained under an explicit landing contract.
+- Test target: the Curriculum 07 isolated suite through `cd labs/curriculum07 && sbt test`
+- Last verified evidence: Curriculum 06 and the core track are complete. Official Delta 4.2.0 evidence supports Spark 4.1.0/4.0.1 rather than the root Spark 4.2.0, so Curriculum 07 selected an isolated Spark 4.1.0 / Delta 4.2.0 / Scala 2.13.17 / Java 21 runtime.
+- Immediate teaching goal: Create and locally verify the isolated build, then prove an exact version-zero Delta table and transaction history.
 
-Do not edit or replace completed Curriculum 01–05 sources or tests.
+Do not edit or replace completed Curriculum 01–06 sources, tests, or root runtime pins.

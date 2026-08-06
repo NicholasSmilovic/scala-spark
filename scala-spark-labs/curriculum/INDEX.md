@@ -11,8 +11,8 @@ The topic and ordering contract is defined in `curriculum/ROADMAP.md`.
 | 03 | Spark testing and reusable transformations | Complete | `curriculum/03-spark-testing/MILESTONES.md` | `learning/tracks/03-spark-testing.md` |
 | 04 | Join correctness, cardinality, and broadcast decisions | Complete | `curriculum/04-join-cardinality-broadcast/MILESTONES.md` | `learning/tracks/04-join-cardinality-broadcast.md` |
 | 05 | Caching, persistence, and reuse decisions | Complete | `curriculum/05-cache-persistence-reuse/MILESTONES.md` | `learning/tracks/05-cache-persistence-reuse.md` |
-| 06 | Semi-structured JSON and curated events | Ready — active final core | `curriculum/06-semi-structured-curation/MILESTONES.md` | `learning/tracks/06-semi-structured-curation.md` |
-| 07 | Incremental pipelines with Delta Lake | Optional | `curriculum/07-delta-incremental/MILESTONES.md` | `learning/tracks/07-delta-incremental.md` |
+| 06 | Semi-structured JSON and curated events | Complete — final core | `curriculum/06-semi-structured-curation/MILESTONES.md` | `learning/tracks/06-semi-structured-curation.md` |
+| 07 | Incremental pipelines with Delta Lake | Active — optional extension | `curriculum/07-delta-incremental/MILESTONES.md` | `learning/tracks/07-delta-incremental.md` |
 | 08 | First Azure Databricks Scala deployment | Optional | `curriculum/08-azure-databricks-deployment/MILESTONES.md` | `learning/tracks/08-azure-databricks-deployment.md` |
 | 09 | Real distributed execution evidence | Optional | `curriculum/09-distributed-execution/MILESTONES.md` | `learning/tracks/09-distributed-execution.md` |
 | 10 | Production reliability capstone | Optional | `curriculum/10-production-reliability/MILESTONES.md` | `learning/tracks/10-production-reliability.md` |
@@ -20,6 +20,7 @@ The topic and ordering contract is defined in `curriculum/ROADMAP.md`.
 ## Scaling conventions
 
 - Scala for curriculum `NN` lives under package/directory `curriculumNN`; completed source is not overwritten by later labs.
+- When dependency compatibility requires isolation, an optional curriculum may use its own build under `labs/curriculumNN/`; Curriculum 07 uses this exception to preserve the completed Spark 4.2 root.
 - Persistent input data lives under `data/curriculum-NN/` when required.
 - Normal generated output lives under `output/curriculum-NN/` and remains ignored by Git; automated tests use suite-owned temporary directories.
 - `learning/PROFILE.md` contains only durable cross-curriculum teaching information.

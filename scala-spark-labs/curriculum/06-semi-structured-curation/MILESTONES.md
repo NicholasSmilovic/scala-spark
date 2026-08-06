@@ -22,6 +22,12 @@ Small file fixtures establish correctness. Realistic scale, Delta Lake, cloud de
 
 Do not introduce Delta Lake, cloud storage, deployment, streaming, generated large datasets, performance benchmarks, Spark UI exercises, skew tuning, machine learning, or production secrets in this curriculum.
 
+## Definition of done for every milestone
+
+- The requested behavior and focused evidence pass.
+- Touched code has no unused imports or variables, duplicate declarations, dead scaffolding, obsolete comments, or accidental formatting drift.
+- Cleanup is completed inside the behavior milestone rather than deferred to a standalone cleanup milestone.
+
 ## Milestone 1 — Land nested JSON with an explicit raw schema
 
 **Teach**
@@ -50,8 +56,10 @@ Do not introduce Delta Lake, cloud storage, deployment, streaming, generated lar
 
 **Teach**
 
-- `to_timestamp` and safe numeric conversion turn raw strings into typed columns without discarding diagnostic evidence.
+- `try_to_timestamp` with an explicit format and safe numeric conversion turn raw strings into typed columns without discarding diagnostic evidence or throwing under ANSI mode.
+- In Scala, `DataFrame` is a type alias for `Dataset[Row]`: a DataFrame uses generic schema-backed rows, while `Dataset[T]` can represent typed JVM values through an encoder. The relationship is core orientation; case-class Dataset programming is optional depth.
 - Struct fields can be projected into curated columns while arrays can remain arrays when their repeated structure is meaningful.
+- `split` creates an array from a delimited string, while `explode` expands one array element per output row and therefore changes cardinality; neither is needed here because `tags` already arrives as an array and the curated contract preserves it.
 - Syntactically valid JSON can still fail required-field, timestamp, amount, or nested-field rules.
 - A rejected-data contract should retain the identifying raw values and a deterministic rejection reason.
 
@@ -66,8 +74,9 @@ Do not introduce Delta Lake, cloud storage, deployment, streaming, generated lar
 
 - The focused suite passes with exact valid/rejected results.
 - The learner explains why parsing and validation happen after landing rather than relying on inference or silently dropping bad rows.
+- The learner explains why the Scala `DataFrame` values in this pipeline are `Dataset[Row]` values and distinguishes that from an optionally typed `Dataset[T]`.
 
-## Milestone 3 — Deduplicate event versions deterministically
+## Milestone 3 — Deduplicate deterministically and publish the final contracts
 
 **Teach**
 
@@ -75,6 +84,9 @@ Do not introduce Delta Lake, cloud storage, deployment, streaming, generated lar
 - `row_number` over a window can select one version while retaining the full chosen row.
 - Window partitioning defines the event key; descending event time and ingest sequence define the winner.
 - A complete tie-break contract is required for deterministic reruns.
+- The observable contract of a write is the resulting durable dataset, not a returned DataFrame.
+- Curated and rejected outputs serve different consumers and should remain separate.
+- Rereading output verifies schema and values across the file boundary; this is integration evidence for the new pipeline, not a separate Spark concept.
 
 **Learner actions**
 
@@ -83,34 +95,19 @@ Do not introduce Delta Lake, cloud storage, deployment, streaming, generated lar
 - Retain only row number one and remove the helper rank from the public output.
 - Assert exact winners for repeated event IDs, including a same-timestamp ingest-sequence tie.
 - Print the formatted plan and identify the window partition, complete ordering, exchange, and sort.
+- Write deduplicated curated events and rejected events to separate suite-owned Parquet paths in a deliberate rerunnable mode.
+- Reread both outputs and assert exact schemas and order-independent rows.
+- Run the full Curriculum 06 suite and complete the milestone cleanup review.
 
 **Completion evidence**
 
 - The focused suite passes with exact deterministic winners.
 - Learner-supplied plan evidence shows the event-key window and full tie-break order.
 - The learner explains why input order is not a valid deduplication rule.
-
-## Milestone 4 — Publish and reread curated Parquet outputs
-
-**Teach**
-
-- The observable contract of a write is the resulting durable dataset, not a returned DataFrame.
-- Curated and rejected outputs serve different consumers and should remain separate.
-- Rereading output verifies schema and values across the file boundary.
-- Suite-owned temporary directories keep integration tests isolated and repeatable.
-
-**Learner actions**
-
-- Add writes for deduplicated curated events and rejected events to separate Parquet paths.
-- Use a deliberate mode that makes the test rerunnable.
-- Reread both outputs and assert exact schemas and rows.
-- Run the full Curriculum 06 suite.
-
-**Completion evidence**
-
 - The full Curriculum 06 suite passes with exact file-boundary evidence.
 - Curated and rejected Parquet outputs are isolated and rerunnable.
 - The learner explains the landing, validation, deterministic deduplication, and publication boundaries.
+- The touched production and test code passes its cleanup review.
 
 ## Completion boundary
 

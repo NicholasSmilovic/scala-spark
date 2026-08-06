@@ -1,6 +1,6 @@
 # Scala/Spark Learning Labs
 
-This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01–05 are complete, Curriculum 06 is the active final core lab, and Curricula 07–10 are optional professional extensions.
+This repository contains a sequence of small, gated Scala/Spark curricula. Curricula 01–06 and the core batch Spark track are complete; Curriculum 07 is the active optional professional extension.
 
 The learner owns the keyboard: you run the commands and edit the Scala file. Codex acts as the Lead Spark Tutor, gives one step at a time, and checks your evidence before advancing.
 
@@ -21,8 +21,8 @@ The durable teaching rules live in `AGENTS.md`. `learning/ACTIVE.md` points to t
 | 03 | Spark testing: reusable transformations and isolated file-boundary tests | Complete |
 | 04 | Join correctness, cardinality, and broadcast decisions | Complete |
 | 05 | Caching, persistence, and reuse decisions | Complete |
-| 06 | Semi-structured JSON and curated events | Ready — active final core |
-| 07 | Incremental pipelines with Delta Lake | Optional |
+| 06 | Semi-structured JSON and curated events | Complete — final core |
+| 07 | Incremental pipelines with Delta Lake | Active — optional extension |
 | 08 | First Azure Databricks Scala deployment | Optional |
 | 09 | Real distributed execution evidence | Optional |
 | 10 | Production reliability capstone | Optional |
@@ -37,6 +37,7 @@ See [curriculum/ROADMAP.md](curriculum/ROADMAP.md) for the locked sequence and [
 - Curriculum 04 uses the `curriculum04` source and test namespaces with in-memory order/product fixtures and no persistent output.
 - Curriculum 05 uses the `curriculum05` source and test namespaces with controlled in-memory fixtures and no persistent output.
 - Curriculum 06 uses the `curriculum06` source and test namespaces with suite-owned nested JSON input and Parquet output.
+- Curriculum 07 uses an isolated build under `labs/curriculum07/` so its supported Spark/Delta runtime does not change the completed root runtime.
 - Curricula 07–10 extend the tested pipeline with isolated Delta, Azure development deployment, realistic-scale execution evidence, and reliability controls according to the roadmap.
 - Each curriculum receives a numbered source namespace, milestone file, and concise progress file; persistent data and normal output are added only when needed.
 - Generated output remains under `output/` and is ignored by Git.
@@ -50,7 +51,7 @@ See [curriculum/ROADMAP.md](curriculum/ROADMAP.md) for the locked sequence and [
 | Apache Spark | 4.2.0 | Stable Spark release selected for the Scala DataFrame API. |
 | sbt | 1.12.11 | Pinned in `project/build.properties`; the learner reports sbt is installed. |
 
-These pins govern the completed root labs and active Curriculum 06. Curriculum 07 has an explicit compatibility gate because Delta Lake must be paired with an officially supported Spark version rather than added blindly to the current root build.
+These pins govern the completed root labs through Curriculum 06. Curriculum 07 has an explicit compatibility gate because Delta Lake must be paired with an officially supported Spark version rather than added blindly to the current root build.
 
 Maven exists on the machine but is not used for this lab. No global Scala installation, Python, PySpark, Python virtual environment, or Python dependencies are required.
 

@@ -11,8 +11,8 @@ Curriculum topics, order, and completion boundaries do not change unless the lea
 | 03 | Spark testing | Reusable transformations and isolated file-boundary tests | Complete |
 | 04 | Join correctness and broadcast decisions | Cardinality, unmatched rows, duplicates, and join plans | Complete |
 | 05 | Caching, persistence, and reuse | Materialization, cached scans, cleanup, and cache decisions | Complete |
-| 06 | Semi-structured JSON and curated events | Nested JSON, timestamps, arrays/structs, quarantine, deterministic deduplication, and Parquet | Active — final core |
-| 07 | Incremental pipelines with Delta Lake | Delta transaction log, schema controls, merge/upsert, idempotency, and bronze/silver/gold tables | Optional |
+| 06 | Semi-structured JSON and curated events | Nested JSON, timestamps, arrays/structs, quarantine, deterministic deduplication, and Parquet | Complete — final core |
+| 07 | Incremental pipelines with Delta Lake | Delta transaction log, schema controls, merge/upsert, idempotency, and bronze/silver/gold tables | Active — optional extension |
 | 08 | First Azure Databricks Scala deployment | Tested Scala JAR, Declarative Automation Bundle, isolated cloud storage, and a repeatable job run | Optional |
 | 09 | Real distributed execution evidence | Jobs/stages/tasks, executor memory, file sizing, AQE, skew, and failure evidence on the six-million-row dataset | Optional |
 | 10 | Production reliability capstone | Configuration, secrets, quality gates, retries, backfills, observability, scheduling, CI/CD, and cost controls | Optional |

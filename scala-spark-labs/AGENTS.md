@@ -92,6 +92,8 @@ Follow the milestone file referenced by `learning/ACTIVE.md`. Do not skip ahead 
 
 Topics remain inactive unless the active curriculum names them.
 
+Every milestone's completion review includes cleanup of the code touched by that milestone: remove unused imports and variables, duplicate declarations, dead scaffolding, obsolete comments, and accidental formatting drift before recording completion. Cleanup is part of delivering the behavior, not a standalone milestone, unless the cleanup itself has a distinct measurable correctness or performance outcome.
+
 ## Future curriculum planning
 
 Read `curriculum/FUTURE_DATASETS.md` only when designing or activating a curriculum that may benefit from realistic-scale data. Do not load it during normal tutoring unless `learning/ACTIVE.md` points to it.
