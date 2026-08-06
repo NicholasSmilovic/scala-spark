@@ -26,3 +26,6 @@ spark-warehouse/
 # Generated Spark output (keep placeholder files)
 **/output/*
 !**/output/.gitkeep
+
+# Private context that must never be shared with the repository.
+.private/

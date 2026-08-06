@@ -17,16 +17,6 @@ This file stores durable cross-curriculum context only. Do not turn it into a se
 - Wants the agreed Curriculum 06–10 roadmap kept stable; do not silently promote one technique into a replacement curriculum or renumber/reorder topics without an explicit redesign request.
 - Wants a clear finish line: Curriculum 06 completes the core batch Spark track, while Delta, Azure, distributed operations, and production reliability remain optional extensions rather than implied prerequisites.
 
-## Job-opportunity context
-
-- This Spark study began after an RBC interview for a software development engineer position in Toronto.
-- The learner's professional background is full-stack development. Spark and data engineering were new areas rather than prior claimed specialties.
-- The interviewer offered to reconnect after approximately one week to see how much the learner could learn, specifically as evidence of teachability and growth. Treat the expected Spark follow-up as primarily conversational unless newer evidence says otherwise.
-- Interview topics recalled by the learner included Spark transformations and actions, lazy evaluation, `map`/`flatMap`, broadcasting, repeated shuffles, shared cluster resource allocation, and deployment. Databricks, data lakes, Snowflake, and Snowpark were broader ecosystem context.
-- The learner's original answer proposed insert batching as a way to reduce repeated shuffling. An important follow-up story is the corrected model: shuffles redistribute data between partitions for operations such as grouping, joining, sorting, and repartitioning; mitigation depends on the cause rather than insert batch size.
-- The interviewer's name was not preserved.
-- Preserve this context across curricula. Do not ask the learner to restate it unless a genuinely missing detail is required, such as the interviewer's name or a newly supplied job description. Do not merge context from other interview processes into this opportunity.
-
 ## Learner ownership
 
 - The learner types commands and edits Scala.
